@@ -66,7 +66,7 @@ locations: "online"
 
 <p>
   <a href="{{ site.swc_site }}">Software Carpentry</a>,
-  <a href="{{ site.dc_site }}">Data Carpentry</a>, and 
+  <a href="{{ site.dc_site }}">Data Carpentry</a>, and
   <a href="{{ site.lc_site }}">Library Carpentry</a>'s mission is to
   help scientists, researchers, and librarians get more research done in less time
   and with less pain by teaching them basic lab skills for scientific
@@ -92,31 +92,18 @@ locations: "online"
   if the latitude and longitude of the workshop have been set.  You
   can use http://itouchmap.com/latlong.html to find the lat/long of an
   address.
-  -->
-<h3 id="where">Where</h3>
-
-{% assign inperson = "false" %}
-{% for loc in page.locations %}
-
-{% capture online %}{{ loc.venue | downcase }}{% endcapture %}
-
-<h4>{{ loc.venue }}</h4>
-
-{% if online == "online" %}
-
-This is an online event. We will meet using the online videoconference software Zoom. You will need to <a href="https://zoom.us/download">download and install their client</a> to connect with your instructors. The link to use for this event is <{{ loc.address }}>.
-
-{% else %}
-{% assign inperson = "true" %}
-{{ loc.address }} {% if loc.latlng %} Get directions with
-    <a href="//www.openstreetmap.org/?mlat={{loc.latlng | replace:',','&mlon='}}&zoom=16">OpenStreetMap</a>
-    or
-    <a href="//maps.google.com/maps?q={{loc.latlng}}">Google Maps</a>. {% endif %}
-
+-->
+{% if page.latlng %}
+<p id="where">
+  <strong>Where:</strong>
+  {{page.address}}.
+  Get directions with
+  <a href="//www.openstreetmap.org/?mlat={{page.latlng | replace:',','&mlon='}}&zoom=16">OpenStreetMap</a>
+  or
+  <a href="//maps.google.com/maps?q={{page.latlng}}">Google Maps</a>.
+</p>
 {% endif %}
-{% endfor %}
 
-<<<<<<< HEAD:index.md
 <p>
   <strong>Requirements:</strong> Participants should bring a laptop
   that is Internet connected and has a functioning browser.  If you
@@ -140,56 +127,27 @@ This is an online event. We will meet using the online videoconference software 
     <a href="{{ site.swc_site }}/conduct/">Code of Conduct</a>.
   </em>
 </p>
-=======
-{% if inperson == "true" %}
 
-<h4 id="accessibility">Accessibility</h4>
-
-We are committed to making this workshop
-accessible to everybody.
-The workshop organisers have checked that:
->>>>>>> fix-18:index.html
-
+<p id="accessibility">
+  <strong>Accessibility:</strong> We are committed to making this workshop
+  accessible to everybody.
+  The workshop organisers have checked that:
+</p>
 <ul>
   <li>The room is wheelchair / scooter accessible.</li>
   <li>Accessible restrooms are available.</li>
 </ul>
-
+<p>
   Materials will be provided in advance of the workshop and
   large-print handouts are available if needed by notifying the
   organizers in advance.  If we can help making learning easier for
   you (e.g. sign-language interpreters, lactation facilities) please
   please get in touch (using contact details below) and we will
   attempt to provide them.
+</p>
 
-{% endif %}
-
-<h3>Requirements</h3>
-
-Participants should bring a laptop that is Internet connected and has a
-  functioning browser. If you have it, a device for recording audio and video
-  (mobile phones and laptops are OK) is useful as throughout the two days, we
-  are going to record one another teaching in pairs or threes. It does not have
-  to be high-quality, but it should be good enough that you can understand what
-  someone is saying.
-
-  Please note that after this course is over, you will be asked to do
-  three short follow-up exercises online in order to finish qualifying
-  as an instructor: the details are available at
-  <a href="{{ site.training_site }}/checkout/">{{ site.training_site }}/checkout/</a>.
-  If you have any questions about the workshop, the reading material,
-  or anything else, please get in touch.
-
-
-<h3>Code of Conduct</h3>
-
-All participants are required to abide by Software Carpentry's <a href="{{
-site.swc_site }}/conduct/">Code of Conduct</a>.
-
-
-
-<h3 id="contact">Contact</h3>
-
+<p id="contact">
+  <strong>Contact</strong>:
   Please email
   {% if page.contact %}
     {% for contact in page.contact %}
@@ -206,7 +164,7 @@ site.swc_site }}/conduct/">Code of Conduct</a>.
     to-be-announced
   {% endif %}
   for more information.
-
+</p>
 
 <hr/>
 
@@ -219,7 +177,7 @@ site.swc_site }}/conduct/">Code of Conduct</a>.
   <li><a href="{{ site.training_site }}/papers/science-of-learning-2015.pdf">The Science of Learning</a></li>
 </ol>
 <p>
-  Please also read through <em>one</em> episode of of the Carpentries lessons below   
+  Please also read through <em>one</em> episode of of the Carpentries lessons below
   carefully, so that you can do some exercises based on it on the
   first day of the class.  An episode is one page of a lesson.
 </p>
@@ -229,7 +187,7 @@ site.swc_site }}/conduct/">Code of Conduct</a>.
   <li><a href="{{ site.dc_site }}/lessons">Data Carpentry Lessons</a></li>
   <li><a href="{{ site.lc_site }}/lessons">Library Carpentry Lessons</a></li>
   </ul>
-  
+
 
 <hr/>
 
